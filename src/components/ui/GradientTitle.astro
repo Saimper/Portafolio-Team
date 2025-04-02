@@ -1,0 +1,12 @@
+---
+interface Props {
+  children: string;
+}
+const { children } = Astro.props;
+---
+
+<h2 class="text-4xl md:text-5xl font-bold mb-8 text-center">
+  <span class="bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">
+    {children}
+  </span>
+</h2>

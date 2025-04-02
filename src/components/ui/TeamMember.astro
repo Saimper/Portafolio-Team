@@ -1,0 +1,24 @@
+---
+interface Props {
+  image: string;
+  name: string;
+  role: string;
+  alt?: string;
+}
+const { image, name, role, alt = name } = Astro.props;
+---
+
+<div class="flex flex-col items-center">
+  <div class="w-32 h-32 md:w-40 md:h-40 rounded-full mb-4 overflow-hidden border-2 border-gray-600/30 hover:border-purple-400 transition-all">
+    <img 
+      src={image} 
+      alt={alt}
+      width="160"
+      height="160"
+      class="w-full h-full object-cover"
+      loading="lazy"
+    />
+  </div>
+  <h3 class="text-xl font-semibold">{name}</h3>
+  <p class="text-gray-400">{role}</p>
+</div>

@@ -2,8 +2,6 @@
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import "./src/styles/global.css";
-
-
 ---
 
 <!doctype html>
@@ -12,25 +10,31 @@ import "./src/styles/global.css";
 		<meta charset="UTF-8" />
 		<title>Portafolio web equipo de desarrollo</title>
 		<meta name="viewport" content="width=device-width" />
-		
 		<meta name="generator" content={Astro.generator} />
-		
 	</head>
-	<body>
-		<Header />
-		<!-- <div class="relative h-full w-full bg-slate-950"><div class="absolute bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div><div class="absolute bottom-0 right-[-20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div></div> -->
+	<body class="bg-gray-900">
+		<!-- Fondo global único -->
+		<div class="fixed inset-0 -z-50 overflow-hidden">
+			<div class="absolute inset-0 bg-gray-900"></div>
+			<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-20">
+				<div class="w-[800px] h-[800px] rounded-full bg-gradient-to-r from-purple-500/30 to-blue-500/30 blur-3xl"></div>
+			</div>
+		</div>
 
-		
-		<slot />
-		<Footer />
-		
+		<div class="min-h-screen flex flex-col relative z-10">
+			<Header />
+			<main class="flex-grow">
+				<slot />
+			</main>
+			<Footer />
+		</div>
 	</body>
 </html>
 
 <style>
-	html,
-	body {
+	html, body {
 		margin: 0;
+		padding: 0;
 		width: 100%;
 		height: 100%;
 	}
