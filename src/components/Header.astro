@@ -1,0 +1,37 @@
+<header class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2">
+    <nav id="navbar" class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center transition-all duration-500 ease-in-out">
+      <a class="relative block px-2 py-2 transition hover:text-purple-400 dark:hover:text-purple-400" href="/#experiencia">
+        Experiencia
+      </a>
+      <a class="relative block px-2 py-2 transition hover:text-purple-400 dark:hover:text-purple-400" href="/#proyectos">
+        Proyectos
+      </a>
+      <a class="relative block px-2 py-2 transition hover:text-purple-400 dark:hover:text-purple-400" href="/#sobre-mi">
+        Nosotros
+      </a>
+      <a class="relative block px-2 py-2 transition hover:text-purple-400 dark:hover:text-purple-400" href="mailto:miduga@gmail.com">
+        Contacto
+      </a>
+    </nav>
+  </header>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const navbar = document.getElementById("navbar");
+      if (navbar && window.scrollY === 0) {
+        navbar.classList.remove("bg-white/50", "dark:bg-gray-800/90", "backdrop-blur", "shadow-lg", "ring-1", "ring-white/10");
+      }
+    });
+  
+    document.addEventListener("scroll", function () {
+      const navbar = document.getElementById("navbar");
+      if (navbar) {
+        if (window.scrollY > 10) {
+          navbar.classList.add("bg-white/50", "dark:bg-gray-800/90", "backdrop-blur", "shadow-lg", "ring-1", "ring-white/10");
+        } else {
+          navbar.classList.remove("bg-white/50", "dark:bg-gray-800/90", "backdrop-blur", "shadow-lg", "ring-1", "ring-white/10");
+        }
+      }
+    });
+  </script>
+  
