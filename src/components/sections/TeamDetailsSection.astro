@@ -1,0 +1,141 @@
+---
+// src/components/sections/TeamDetailsSection.astro
+const milestones = [
+  {
+    year: "2019",
+    title: "Fundación",
+    description: "Despegamos como startup en el garaje de un cofundador",
+    icon: "🚀"
+  },
+  {
+    year: "2021",
+    title: "Primer Gran Cliente",
+    description: "Implementamos solución para empresa Fortune 500",
+    icon: "🛰️",
+    featured: true
+  },
+  {
+    year: "2023",
+    title: "Expansión Global",
+    description: "Equipo distribuido en 5 países",
+    icon: "🌍"
+  }
+];
+
+const stats = [
+  { value: "4+", label: "Años en órbita" },
+  { value: "50+", label: "Proyectos exitosos" },
+  { value: "100%", label: "Clientes satisfechos" }
+];
+---
+
+<style is:global>
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, 
+      transparent 0%, 
+      rgba(138, 43, 226, 0.6) 30%, 
+      rgba(76, 29, 149, 0.4) 70%, 
+      transparent 100%);
+  }
+
+  @media (max-width: 768px) {
+    .timeline::before {
+      left: 1.5rem;
+    }
+  }
+
+  .milestone-card {
+    border: 1px solid rgba(138, 43, 226, 0.3);
+    backdrop-filter: blur(8px);
+    transition: all 0.4s ease;
+  }
+
+  .milestone-card:hover {
+    border-color: rgba(138, 43, 226, 0.6);
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.2);
+  }
+
+  .milestone-card.featured {
+    border-color: rgba(76, 201, 240, 0.5);
+    background: radial-gradient(
+      ellipse at top right,
+      rgba(138, 43, 226, 0.1) 0%,
+      transparent 70%
+    );
+  }
+
+  .stat-card {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+</style>
+
+<section id="nosotros" class="py-20 px-4 sm:px-6 max-w-7xl mx-auto">
+  <div class="max-w-4xl mx-auto text-center mb-16">
+    <h2 class="text-4xl md:text-5xl mb-6">
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
+        Nuestra Travesía
+      </span>
+    </h2>
+    <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+      Explorando nuevas fronteras digitales desde 2019. 
+      <span class="block mt-2 text-purple-300">Misión: revolucionar el desarrollo web como se conoce.</span>
+    </p>
+  </div>
+
+  <!-- Timeline Interactiva -->
+  <div class="relative timeline py-10">
+    <div class="space-y-16">
+      {milestones.map((item) => (
+        <div class={`milestone-card relative rounded-xl p-6 mx-auto max-w-2xl ${item.featured ? 'featured' : ''}`}>
+          <div class="absolute -left-4 md:left-1/2 md:-translate-x-1/2 top-0 w-8 h-8 flex items-center justify-center rounded-full bg-gradient-to-br from-purple-600 to-blue-500 text-white z-10">
+            {item.icon}
+          </div>
+          <div class="ml-10 md:ml-0 md:text-center">
+            <span class="text-sm text-purple-300">{item.year}</span>
+            <h3 class="text-xl font-bold text-white mt-1">{item.title}</h3>
+            <p class="text-gray-300 mt-2">{item.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Estadísticas Flotantes -->
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-20 max-w-4xl mx-auto">
+    {stats.map((stat) => (
+      <div class="stat-card rounded-lg p-6 text-center hover:translate-y-1 transition-transform">
+        <p class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-blue-300">
+          {stat.value}
+        </p>
+        <p class="text-sm text-gray-400 mt-2">{stat.label}</p>
+      </div>
+    ))}
+  </div>
+
+  <!-- Objetivo (Estilo Mensaje de Misión Espacial) -->
+  <div class="mt-20 p-6 md:p-8 rounded-xl border border-gray-800 max-w-4xl mx-auto text-center relative overflow-hidden">
+    <div class="absolute -right-20 -top-20 w-40 h-40 rounded-full bg-purple-900 opacity-20 blur-3xl"></div>
+    <h3 class="text-2xl font-bold text-white mb-4">
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+        Nuestra Misión
+      </span>
+    </h3>
+    <p class="text-gray-300 leading-relaxed">
+      "Ser los pioneros en llevar experiencias digitales a nuevas dimensiones. 
+      Combinamos tecnología punta con diseño innovador para crear soluciones 
+      que orbiten más allá de lo convencional."
+    </p>
+    <div class="mt-6">
+      <span class="inline-block text-xs px-3 py-1 rounded-full bg-gray-800 text-purple-300">
+        #InnovaciónSinLímites
+      </span>
+    </div>
+  </div>
+</section>
