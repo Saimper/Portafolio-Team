@@ -1,0 +1,137 @@
+---
+// src/components/sections/ProjectSection.astro
+const projects = [
+  {
+    title: "Plataforma E-learning",
+    description: "Sistema de cursos online con seguimiento de progreso",
+    tags: ["React", "Node.js", "MongoDB"],
+    year: "2023"
+  },
+  {
+    title: "App de Gestión Logística",
+    description: "Solución para optimización de rutas de transporte",
+    tags: ["Flutter", "Firebase", "Google Maps API"],
+    year: "2024",
+    featured: true
+  },
+  {
+    title: "Sistema de Análisis de Datos",
+    description: "Herramienta de business intelligence para PYMES",
+    tags: ["Python", "Pandas", "Tableau"],
+    year: "2023"
+  },
+  {
+    title: "Marketplace Artesanal",
+    description: "Plataforma para comercio local de productos handmade",
+    tags: ["Next.js", "Stripe", "PostgreSQL"],
+    year: "2022"
+  },
+  {
+    title: "Herramienta de Colaboración",
+    description: "Solución todo-en-uno para equipos remotos",
+    tags: ["TypeScript", "WebRTC", "NestJS"],
+    year: "2024"
+  }
+];
+---
+
+<style is:global>
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .projects-grid {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+    
+    .project-card.featured {
+      grid-column: span 2;
+    }
+  }
+  
+  .project-card {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(15, 23, 42, 0.7);
+    transition: all 0.3s ease;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(138, 43, 226, 0.4);
+    border-color: rgba(138, 43, 226, 0.4);
+  }
+  
+  .project-card.featured {
+    background: linear-gradient(135deg, rgba(76, 29, 149, 0.3), rgba(29, 78, 216, 0.3));
+  }
+  
+  .project-card.featured:hover {
+    box-shadow: 0 10px 30px -5px rgba(138, 43, 226, 0.6);
+  }
+  
+  .featured-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    z-index: 10;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+  }
+</style>
+
+<section id="proyectos" class="py-20 px-4 sm:px-6 max-w-7xl mx-auto">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <h2 class="text-4xl md:text-5xl mb-12 text-center">
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
+        Proyectos
+      </span>
+    </h2>
+  </div>
+
+  <div class="projects-grid">
+    {projects.map((project) => (
+      <div class={`project-card ${project.featured ? 'featured' : ''}`}>
+        {project.featured && <span class="featured-badge">Destacado</span>}
+        
+        <div class="relative p-6 h-full flex flex-col z-10">
+          <div class="flex-grow">
+            <span class="text-sm text-gray-400">{project.year}</span>
+            <h3 class="text-xl font-bold mt-1 mb-2 text-white">{project.title}</h3>
+            <p class="text-gray-300">{project.description}</p>
+          </div>
+          
+          <div class="mt-4 flex flex-wrap gap-2">
+            {project.tags.map((tag) => (
+              <span class="text-xs bg-gray-800 text-gray-200 px-2 py-1 rounded">
+                {tag}
+              </span>
+            ))}
+          </div>
+          
+          <button class="mt-6 inline-flex items-center text-sm font-medium text-purple-400 hover:text-white transition-colors">
+            Ver detalles
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
