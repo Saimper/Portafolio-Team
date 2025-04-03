@@ -41,12 +41,11 @@ const projects = [
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   @media (min-width: 768px) {
     .projects-grid {
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
-    
     .project-card.featured {
       grid-column: span 2;
     }
@@ -73,6 +72,31 @@ const projects = [
   
   .project-card.featured:hover {
     box-shadow: 0 10px 30px -5px rgba(138, 43, 226, 0.6);
+  }
+  
+  .project-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="white" opacity="0.5"/><circle cx="50" cy="50" r="1" fill="white" opacity="0.3"/><circle cx="80" cy="30" r="1" fill="white" opacity="0.4"/><circle cx="30" cy="70" r="1" fill="white" opacity="0.6"/><circle cx="70" cy="80" r="1" fill="white" opacity="0.2"/></svg>');
+    opacity: 0.3;
+  }
+  
+  .project-card:hover::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(138, 43, 226, 0.1) 0%, transparent 70%);
+    animation: rotate 4s linear infinite;
+    z-index: 0;
+  }
+  
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
   
   .featured-badge {
