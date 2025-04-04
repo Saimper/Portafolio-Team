@@ -1,0 +1,6 @@
+---
+// src/components/favicon.astro
+const iconColor = "#8b5cf6"; // Color morado espacial
+---
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='rocketGradient' x1='0%' y1='0%' x2='0%' y2='100%'><stop offset='0%' stop-color='%238b5cf6'/><stop offset='100%' stop-color='%236d28d9'/></linearGradient><linearGradient id='flameGradient' x1='0%' y1='0%' x2='0%' y2='100%'><stop offset='0%' stop-color='%23f59e0b'/><stop offset='100%' stop-color='%23ef4444'/></linearGradient></defs><path fill='url(%23rocketGradient)' d='M50 10L30 50h5l-5 40h30l-5-40h5z'/><path fill='%23${accentColor.slice(1)}' d='M50 10l8 25h-16zM40 50h20v8H40z'/><path fill='url(%23flameGradient)' d='M30 90l10-25-5-15 5-5zm40 0l-10-25 5-15-5-5z' transform='rotate(180 50 70)'/><circle cx='50' cy='25' r='7' fill='%23fff'/><path fill='%23${accentColor.slice(1)}' d='M45 35h10v5H45z'/></svg>" />
