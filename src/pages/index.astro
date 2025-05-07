@@ -6,6 +6,7 @@ import TeamSection from "@/components/sections/TeamSection.astro";
 import ProjectSection from "@/components/sections/ProjectSection.astro";
 import TeamDetailsSection from "@/components/sections/TeamDetailsSection.astro";
 import ContactSection from "@/components/sections/ContactSection.astro";
+import Chatbot from "@/components/react/ChatbotSection"
 ---
 
 <Layout 
@@ -17,7 +18,9 @@ import ContactSection from "@/components/sections/ContactSection.astro";
     <TeamSection class="pt-0" />
     <ProjectSection />
     <TeamDetailsSection />
+    
     <ContactSection />
+    <Chatbot client:load />
 
 
   </main>
