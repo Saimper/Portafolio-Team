@@ -5,7 +5,7 @@ const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
     {
-      text: "¡Hola! 👋 Soy Devy, el asistente de SpacesDevs. ¿En qué puedo ayudarte hoy? Puedes preguntarme sobre:\n\n• Nuestro **equipo** de expertos\n• Los **proyectos** que hemos desarrollado\n• Nuestra **experiencia** en el mercado\n• Cómo **contactarnos**",
+      text: "¡Hola! 👋 Soy Wall-E, el asistente de SpacesDevs. ¿En qué puedo ayudarte hoy? Puedes preguntarme sobre:\n\n• Nuestro **equipo** de expertos\n• Los **proyectos** que hemos desarrollado\n• Nuestra **experiencia** en el mercado\n• Cómo **contactarnos**",
       sender: "bot",
     },
   ]);
